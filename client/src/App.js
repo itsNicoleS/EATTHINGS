@@ -1,27 +1,30 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Welcome from './components/Welcome';
-import card from '.card.js';
+import Card from './components/card.js';
+
 // import Contact from './components/Contact';
 // import SignUp from './components/SignUp';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-       
-          <Route path="/welcome" component={Welcome} />
-          {/* <Route path="/menu" component={Menu} />
+
+    <div className="App">
+      <Router>
+        <Routes>
+
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/card" element={<Card id="stuff" />} />
+          {/*
           <Route path="/contact" component={Contact} />
           <Route path="/signup" component={SignUp} /> */}
 
-     
-      
-        
-      </div>
-    </Router>
+        </Routes>
+      </Router>
+    </div>
+
   );
 }
 
