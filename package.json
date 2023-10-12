@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client &&npm run build",
-    "develop": "cd server && node server.js && cd ../client && npm run start"
+
+    "start": "node server.js",
+    "develop": "cocurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+    
+    // "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
