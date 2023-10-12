@@ -1,16 +1,16 @@
 import React from 'react';
-import Meal from 'Meals.js'
+// import Meal from 'Meals.js'
 
 export default function Card(props) {
   const cardStyle = {
     width: '18rem',
   };
 
-  // Helper function that generates a random width for our placeholder images
-  const randomWidth = () => {
-    const number = Math.random() * (300 - 200) + 200;
-    return number.toString().split('.')[0];
-  };
+  // // Helper function that generates a random width for our placeholder images
+  // const randomWidth = () => {
+  //   const number = Math.random() * (300 - 200) + 200;
+  //   return number.toString().split('.')[0];
+  // };
 
   return (
     <div className="container">
