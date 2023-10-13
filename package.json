@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/itsNicoleS/EATTHINGS#readme",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
     "concurrently": "^8.2.1"
   }
 }
