@@ -1,37 +1,27 @@
 import React from 'react';
-// import Meal from 'Meals.js'
+import { useParams } from 'react-router-dom';
 
 export default function Card(props) {
   const cardStyle = {
     width: '18rem',
   };
 
-  // // Helper function that generates a random width for our placeholder images
-  // const randomWidth = () => {
-  //   const number = Math.random() * (300 - 200) + 200;
-  //   return number.toString().split('.')[0];
-  // };
+  const { itemID } = useParams();
+
+  const menuItem = props.menuItems.find(item => item.itemID === parseInt(itemID, 10));
 
   return (
     <div className="container">
       <div className="card" style={cardStyle}>
-        <img
-          className="card-img-top"
-          src={` `}
-          alt="Card cap"
-        />
+        <img className="card-img-top" src={menuItem.imageURL} alt={menuItem.name} />
         <div className="card-body">
-          <p className="card-text">itemID: {props.id}</p>
-          <h5 className="card-title">Name: {props.name}</h5>
-          <p className="card-text">Description: {props.description}</p>
-          <p className="card-text">price: {props.price}</p>
-          <p className="card-text">category: {props.category}</p>
-          <p className="card-text">imageURL: {props.imageURL}</p>
-
-
-          <a href="#" className="btn btn-primary">
-            ORDER {props.name}
-          </a>
+          <p className="card-text">itemID: {menuItem.itemID}</p>
+          <h5 className="card-title">Name: {menuItem.name}</h5>
+          <p className="card-text">Description: {menuItem.description}</p>
+          <p className="card-text">Price: ${menuItem.price.toFixed(2)}</p>
+          <p className="card-text">Category: {menuItem.category}</p>
+          {/* <a>className="btn btn-primary"</a>
+            ORDER {menuItem.name} */}
         </div>
       </div>
     </div>
