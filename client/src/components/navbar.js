@@ -1,54 +1,52 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+// import Auth from '../../utils/auth';
 
+function Nav() {
+  //function showNavigation() {
 
-// We declare an object called styles that will contain a few objects for card and heading styles
-// Notice that each key lists CSS styles in camel case
-const styles = {
-  card: {
-    margin: 20,
-    background: '#e8eaf6',
-  },
-  heading: {
-    background: '#9a74db',
-    minHeight: 50,
-    lineHeight: 3.5,
-    fontSize: '1.2rem',
-    color: 'white',
-    padding: '0 20px',
-  },
-};
+    // if (Auth.loggedIn()) {
+    //   return (
+    //     <ul className="flex-row">
+    //       <li className="mx-1">
+    //         <a href="/" onClick={() => Auth.logout()}>
+    //           Logout
+    //         </a>
+    //       </li>
+    //     </ul>
+    //   );
+    // } else {
+      return (
+        <ul className="flex-row">
+          <li className="nvbr-1">
+            <Link to="/welcome">Welcome</Link>
+          </li>
+          <li className="nvbr-1">
+            <Link to="/Home">Home</Link>
+          </li>
+          <li className="nvbr-1">
+            <Link to="/SignUp">SignUp</Link>
+          </li>
 
-// In Navbar, we can assign a style from an object by using curly braces
-function Navbar() {
-  return (
-    <nav className="main-header-menu">
-      <section
-        style={{
-          display: 'flex',
-          fontFamily: 'helvetica',
-          flexDirection: 'row',
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-        }}
-      >
-        <div style={{}}>
-          <a href="#">Home</a>
-        </div>
-        <div style={{}}>
-          <a href="#">Login</a>
-        </div>
-        <div style={{}}>
-          <a href="#">Register</a>
-        </div>
-        <div style={{}}>
-          <a href="#">About</a>
-        </div>
-        <div style={{}}>
-          <a href="#">Contact</a>
-        </div>
-      </section>
-    </nav>
-  );
-}
+          {/*
+               
+               <li className="nvbr-1">
+            <Link to="/login">Login</Link>
+          </li> 
+          
+           <li className="nvbr-1">
+            <Link to="/About">About</Link>
+          </li>
+          
+          */}
 
-export default Navbar;
+          <li className="nvbr-1">
+            <Link to="/contactUs">ContactUs</Link>
+          </li>
+        </ul>
+      );
+    }
+  //}
+// }
+
+export default Nav;
