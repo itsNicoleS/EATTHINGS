@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+section,
+footer
+
+/* lower-footer  */
+    {
+    margin: 0 5vw;
+}
+
+section first-of-type {
+    margin: 0;
+}
+
+section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+}
