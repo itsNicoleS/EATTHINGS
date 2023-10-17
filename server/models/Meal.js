@@ -3,15 +3,12 @@ const { Schema, model } = require('mongoose');
 const mealSchema = new Schema({
     name: {
         type: String,
-        minlength: 1,
-        maxlength: 100,
         require: true,
         trim: true,
     },
     description: {
         type: String,
-        minlength:1,
-        maxlength:200,
+     
         trim: true,
     },
     image: {
@@ -20,10 +17,17 @@ const mealSchema = new Schema({
     price: {
         type: Number,
     },
+    isSeceret: {
+        type: Boolean, default: false
+    },
     categories: [{
         type: Schema.Types.ObjectId,
         ref: "Category",
-    }]
+    }],
+    menuId: {
+        type: Schema.Types.ObjectId,
+        ref: "Menu",
+    }
 })
 
 const Meal = model("Meal", mealSchema)

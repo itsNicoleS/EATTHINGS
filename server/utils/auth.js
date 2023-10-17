@@ -1,8 +1,21 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'mysecretsshhhhh';
-const expiration = '2h';
+const secret = 'mysecret';
 
+
+const generateToken = (user) => {
+  const token = jwt.sign({ userId: user._id }, 'mysecret', { expiresIn: '1h' });
+  return token;
+};
+
+const verifyToken = (token) => {
+  try {
+    const decoded = jwt.verify(token, 'mysecret');
+    return decoded.userId;
+  } catch (error) {
+    throw new Error('Invalid token');
+  }
+};
 module.exports = {
   authMiddleware: function ({ req }) {
     // allows token to be sent via req.body, req.query, or headers
