@@ -59,46 +59,43 @@ export default function MenuCard(props) {
 
   const { itemID } = useParams();
 
-  
-// const menuItem = props.data.find(item => item.itemID === parseInt(itemID, 10));
-return (
-  <Section>
-    <div className='title'>
-      <h1>
-        <span>Top Favorites</span>
-      </h1>
-    </div>
 
-    <div className='card '>
-      <CardGroup>
-      {data.map((menuItem) => {
-        return (
-          <Card style={{width:'20em'}}>
-            <Card.Img variant="top" src={menuItem.imageURL}/>
-            <Card.Body>
-              <Card.Title>{menuItem.name}</Card.Title>
-              <Card.Text>
-                {menuItem.description}
-              </Card.Text>
-              <Button variant="primary"> ORDER </Button>
-            </Card.Body>
-          </Card>
-        );
-      })}
-      </CardGroup>
-    </div>
-  </Section>
-);
-    };
+  // const menuItem = props.data.find(item => item.itemID === parseInt(itemID, 10));
+  return (
+    <Section>
+      <div className='title'>
+        <h1>
+          <span>Top Favorites</span>
+        </h1>
+      </div>
 
-    
+      <div className='card '>
+        <CardGroup>
+          {data.map((menuItem) => {
+            return (
+              <Card style={{ width: '20em' }}>
+                <Card.Img variant="top" src={menuItem.imageURL} />
+                <Card.Body>
+                  <Card.Title>{menuItem.name}</Card.Title>
+                  <Card.Text>
+                    {menuItem.description}
+                  </Card.Text>
+                  <Button variant="primary"> ORDER </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </CardGroup>
+      </div>
+    </Section>
+  );
+};
+
+
 const Section = styled.section`
+display: grid;
+
 .card {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  margin-top: 3rem;
-  .card {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
