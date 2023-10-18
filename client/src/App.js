@@ -1,11 +1,14 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 
-import Mynav from './components/Mynav';
+import Nav from './components/Navbar';
+import Header from './components/header';
 import Welcome from './components/Welcome';
 import ContactUs from './components/ContactUs';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
+import Footer from './components/footer';
 
 
 // import About from './components/About';
@@ -14,10 +17,11 @@ function App() {
   return (
 
     <div className="App">
-
-      <Mynav />
       <Router>
+        <Nav />
+        <Header />
         <Routes>
+
           <Route
             path="/"
             element={<Welcome />}
@@ -50,8 +54,9 @@ function App() {
           />
 
         </Routes>
+        <Footer />
       </Router>
-    
+
     </div>
 
   );
