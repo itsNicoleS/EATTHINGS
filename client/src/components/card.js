@@ -1,95 +1,154 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+
 import { useParams } from 'react-router-dom';
-import { imageZoomEffect, TitleStyles } from './reuseableStyles';
-import {'platterPic.jpg', 'injeraPic.jpg'} from 'client\src\assets\plattterPic.jpg';
+
+import platter from '../assets/platterPic.jpg';
+import injera from '../assets/injeraPic.jpg';
+import coffee from '../assets/coffeePic.webp';
+import tibs from '../assets/tibs.webp';
+import shiro from '../assets/shiroPic.webp';
 
 
-export default function Card(props) {
-    const data = [ 
-      {
-      itemID : 1,
-      name: "Tibs", 
-      description: "<p> Sliced beef or lamb, pan-fried in butter, garlic and onion. </p>" ,  
-      price: 10.00, 
-      category: "regMenu", 
-      imageURL: "client\src\assets\tibs.webp ",
-  }, 
-  { 
-      itemID: 2, 
-      name: "Doro Wat", 
-      description: " <p> Doro wot is made with chicken drumsticks cooked and served in a hot sauce of spices. </p>" ,
-      price: 10.00, 
-      category: "regMenu", 
-      imageURL: "client\src\assets\plattterPic.jpg "
-  }, 
-  { 
-      itemID: 3, 
-      name: "Shiro", 
-      description: "<p> A highly seasoned puree of chickpeas served in a clay pot. </p>" ,
-      price: 10.00, 
-      category: "secretMenu", 
-      imageURL: "client\src\assets\shiroPic.webp "
-  }, 
-  { 
-      itemID: 4, 
-      name: "Injera", 
-      description: "<p> Pancake-like flatbread with a slightly spongy texture. </p>" ,
-      price: 10.00, 
-      category: "regMenu", 
-      imageURL: "client\src\assets\injeraPic.jpg "
-  }, 
-  { 
-      itemID: 5, 
-      name: "Ethiopian Coffee", 
-      description: "<p> Brewed fresh! </p>" ,
-      price: 10.00, 
-      category: "secretMenu", 
-      imageURL: "client\src\assets\coffeePic.webp "
-  }, 
+export default function MenuCard(props) {
+  const data = [
+    {
+      itemID: 1,
+      name: "Tibs",
+      description: "Sliced beef or lamb, pan-fried in butter, garlic and onion.",
+      price: 10.00,
+      category: "regMenu",
+      imageURL: tibs
+    },
+    {
+      itemID: 2,
+      name: "Doro Wat",
+      description: "Doro wot is made with chicken drumsticks cooked and served in a hot sauce of spices.",
+      price: 10.00,
+      category: "regMenu",
+      imageURL: platter
+    },
+    {
+      itemID: 3,
+      name: "Shiro",
+      description: "A highly seasoned puree of chickpeas served in a clay pot.",
+      price: 10.00,
+      category: "secretMenu",
+      imageURL: shiro
+    },
+    {
+      itemID: 4,
+      name: "Injera",
+      description: "Pancake-like flatbread with a slightly spongy texture.",
+      price: 10.00,
+      category: "regMenu",
+      imageURL: injera
+    },
+    {
+      itemID: 5,
+      name: "Ethiopian Coffee",
+      description: "Brewed fresh!",
+      price: 10.00,
+      category: "secretMenu",
+      imageURL: coffee
+    },
   ]
 
-  const { itemID } = useParams() 
+  const { itemID } = useParams();
 
-  const menuItem = props.menuItems.find(item => item.itemID === parseInt(itemID, 10));
+  
+// const menuItem = props.data.find(item => item.itemID === parseInt(itemID, 10));
 return (
- <Section>
+  <Section>
     <div className='title'>
       <h1>
         <span>Top Favorites</span>
       </h1>
     </div>
 
-    <div className='card'>
+    <div className='card '>
+      <CardGroup>
       {data.map((menuItem) => {
         return (
-          <div className='card' key={menuItems.id}>
-            <div className='image'>
-              <img src './assets/plattterPic.jpg' alt = "product Image"/>
-            </div>
-            <h5 className="card-title">Name: {menuItem.name}</h5>
-            <p className="card-text">Price: ${menuItem.price.toFixed(2)}</p>
-            <p className="card-text">Description: {menuItem.description}</p>
-            <a className="btn btn-primary"> ORDER {menuItem.name}</a>
-          </div>
+          <Card style={{width:'20em'}}>
+            <Card.Img variant="top" src={menuItem.imageURL}/>
+            <Card.Body>
+              <Card.Title>{menuItem.name}</Card.Title>
+              <Card.Text>
+                {menuItem.description}
+              </Card.Text>
+              <Button variant="primary"> ORDER </Button>
+            </Card.Body>
+          </Card>
         );
       })}
-      </div>
-      </Section>
-      );
-    }
+      </CardGroup>
+    </div>
+  </Section>
+);
+    };
 
-const Section = styled.section `
-${TitleStyles}; 
-.card { 
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr); 
-}
-.image { 
-  max-height: 20rem;
-  img { 
-    height: 20rem;
-    width: 15rem;
+    
+const Section = styled.section`
+.card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    justify-content: center;
+    align-items: center;
+    h3 {
+      color: #fc4958;
+    }
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 2rem;
+      letter-spacing: 0.1rem;
+    }
+   
+    .image {
+      max-height: 20rem;
+      overflow: hidden;
+      border-radius: 1rem;
+      img {
+        height: 20rem;
+        width: 15rem;
+        object-fit: cover;
+      }
+    }
+    button {
+      border: none;
+      padding: 1rem 4rem;
+      font-size: 1.4rem;
+      color: black;
+      border-radius: 4rem;
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+      background: linear-gradient(to right, #fc4958, #e85d04);
+      text-transform: uppercase;
+      &:hover {
+        background: linear-gradient(to right, #e85d04, #fc4958);
+      }
+    }
   }
 }
-`; 
+
+@media screen and (min-width: 280px) and (max-width: 720px) {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+@media screen and (min-width: 720px) and (max-width: 1080px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+`;

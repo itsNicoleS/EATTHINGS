@@ -1,4 +1,6 @@
 import React from 'react';
+import Card from '../components/card.js';
+
 
 function App() {
     return (
@@ -13,22 +15,9 @@ function App() {
                     </ul>
                 </nav>
             </header>
-
             <section className="card">
-                <h2>Featured Menu</h2>
-                {/* Featured menu items go here */}
-                <div className="MenuItem">
-                    <img src="..\assets\platterpic.jpg" alt="Food Item 1" />
-                    <h3>Food Item 1</h3>
-                    <p>Description of Food Item 1.</p>
-                </div>
-                <div className="MenuItem">
-                    <img src="food-item-2.jpg" alt="Food Item 2" />
-                    <h3>Food Item 2</h3>
-                    <p>Description of Food Item 2.</p>
-                </div>
+            <Card> </Card>
             </section>
-
         </div>
     );
 }
