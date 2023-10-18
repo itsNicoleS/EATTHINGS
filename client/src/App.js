@@ -1,30 +1,30 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import Nav from './components/Navbar';
 import Header from './components/header';
-import Welcome from './components/Welcome';
-import ContactUs from './components/ContactUs';
+import Welcome from './pages/Welcome';
+import ContactUs from './pages/ContactUs';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Footer from './components/footer';
-
-
-// import About from './components/About';
+import AboutUs from './components/aboutUs';
 
 function App() {
+  
+const [loggedIn, setLoggedIn] = useState(false);
+
   return (
 
     <div className="App">
       <Router>
         <Nav />
-        <Header />
         <Routes>
 
           <Route
             path="/"
-            element={<Welcome />}
+            element={<Welcome loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           />
           <Route
             path="/Home"
@@ -39,14 +39,14 @@ function App() {
     <Route
             path="/logIn"
             element={<logIn />}
-          />
+          />*/}
 
           <Route
             path="/About"
-            element={<About />}
-          /> 
-          
-          */}
+            element={<AboutUs />}
+          />
+
+
 
           <Route
             path="/ContactUs"

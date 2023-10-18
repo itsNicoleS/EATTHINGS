@@ -3,10 +3,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import{ Link} from 'react-router-dom'; 
+import styled from "styled-components";
 
 function BasicExample() {
+  const navbarStyle = {
+    backgroundColor: '#f9c55f', // Set your desired background color
+    color: '#ffffff' // Set your desired text color
+};
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar style={navbarStyle} expand="lg" className="bg-body-tertiary myfuckinburntoragestlye">
       <Container>
         <Navbar.Brand href="#home">EAT THINGS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -15,12 +20,16 @@ function BasicExample() {
             <Nav.Link href="#home"> <Link to={"/Home"}>Home</Link></Nav.Link>
             <Nav.Link href="#link"><Link to={"/SignUp"}>Sign Up</Link></Nav.Link>
             <Nav.Link href="#link"><Link to={"/ContactUs"}>Contact Us</Link></Nav.Link>
+            <Nav.Link href="#link"><Link to={"/aboutUs"}>About Us</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
+const myfuckinburntoragestlye = styled.div`
+color: #f9c55f;
+`;
 
 export default BasicExample;
 
