@@ -14,11 +14,11 @@ function App() {
                 </nav>
             </header>
 
-            <section className="FeaturedMenu">
+            <section className="card">
                 <h2>Featured Menu</h2>
                 {/* Featured menu items go here */}
                 <div className="MenuItem">
-                    <img src="food-item-1.jpg" alt="Food Item 1" />
+                    <img src="..\assets\platterpic.jpg" alt="Food Item 1" />
                     <h3>Food Item 1</h3>
                     <p>Description of Food Item 1.</p>
                 </div>
