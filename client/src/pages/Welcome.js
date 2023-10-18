@@ -1,8 +1,9 @@
 import React from 'react';
+import coffeePic from '../assets/coffeePic.webp';
 
 // Here we destructure our props into their own distinct variables
 export default function Welcome({ loggedIn, setLoggedIn }) {
-  
+
   // Lets log our our loggedIn variable to see it change in real time
   console.log('Welcome -> loggedIn', loggedIn);
 
@@ -23,13 +24,14 @@ export default function Welcome({ loggedIn, setLoggedIn }) {
       ) : (
         // If we are logged out, render this:
         <div>
-          <span role="img" aria-label="stopsign">
-        
+          <img src={coffeePic} />
+          {/*
+          <span role="img" aria-label="stopsign">        
           </span>
           <h3>You are currently logged out</h3>
           <button type="button" onClick={() => setLoggedIn(!loggedIn)}>
             Log in
-          </button>
+      </button>*/}
         </div>
       )}
     </div>

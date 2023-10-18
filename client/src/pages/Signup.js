@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { SIGNUP, } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 
 function SignUp() {
@@ -13,11 +16,23 @@ function SignUp() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Handle form submission logic here, e.g., sending the data to an API
-    console.log('Form submitted:', formData);
+    try {
+      const { data } = await signup({
+        variables: { ...formData }
+      }
+      )
+      Auth.login(data.signup.token)
+      console.log('Form submitted:', formData);
+    }
+    catch (error) {
+      console.log(error);
+    }
   };
+
+  const [signup, { error }] = useMutation(SIGNUP)
 
   return (
     <div className="SignUp">

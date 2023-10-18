@@ -11,7 +11,7 @@ const Header = () => {
           marginTop: "10px",
         }}
       >
-        A Simple Restaurant Header
+        Restaurant At The End of the Universe
       </h2>
       <HeaderContainer>
         <Row>

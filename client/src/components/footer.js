@@ -13,7 +13,7 @@ const Footer = () => {
                     marginTop: "10px",
                 }}
             >
-                A Simple Restaurant Footer
+                The Bottom of the Page
             </h2>
             <FooterContainer>
                 <Row>
