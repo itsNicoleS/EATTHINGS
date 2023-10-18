@@ -19,15 +19,21 @@ type User {
     firstName: String
     lastName: String
     email: String
-    token: String
+}
+type Auth {
+    token: ID
+    user: User
 }
 type Query {
     categories: [Category]
     meals: [Meal]
+    me: User
+    nonSecret: [Meal]
+    isSecret: [Meal]
 }
 type Mutation {
-    signup(firstName: String, lastName: String, email: String, password: String): User
-    login(email: String, password: String): User
+    signup(firstName: String, lastName: String, email: String, password: String): Auth
+    login(email: String, password: String): Auth
   }
 `
 module.exports = typeDefs;

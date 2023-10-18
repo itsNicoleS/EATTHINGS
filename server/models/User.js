@@ -28,15 +28,15 @@ const userSchema = new Schema({
 });
 
 
-userSchema.pre('save', async function(next) {
-  const user = this;
-  if (!user.isModified('password')) return next();
+// userSchema.pre('save', async function(next) {
+//   const user = this;
+//   if (!user.isModified('password')) return next();
 
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(user.password, salt);
-  user.password = hash;
-  next();
-});
+//   const salt = await bcrypt.genSalt(10);
+//   const hash = await bcrypt.hash(user.password, salt);
+//   user.password = hash;
+//   next();
+// });
 
 
 // set up pre-save middleware to create password
@@ -51,7 +51,7 @@ userSchema.pre('save', async function(next) {
 
 // compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = async function(password) {
-  return await bcrypt.compare(password, this.password);
+  return bcrypt.compare(password, this.password);
 };
 
 const User = model('User', userSchema);
