@@ -17,7 +17,7 @@ const mealSchema = new Schema({
     price: {
         type: Number,
     },
-    isSeceret: {
+    isSecret: {
         type: Boolean, default: false
     },
     categories: [{

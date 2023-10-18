@@ -9,7 +9,11 @@ const menuSchema = new Schema({
     description: {
         type: String,
         trim: true,
-    }
+    },
+    meals: [{
+        type: Schema.Types.ObjectId,
+        ref: "Meal"
+    }]
 })
 
 const Menu = model("Menu", menuSchema)

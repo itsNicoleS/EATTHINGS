@@ -5,27 +5,28 @@ type Category {
     _id: ID
     name: String
 }
-type  Meal {
+type Meal {
     _id: ID
     name: String
-    description: 
+    description: String
     price: Float
-    image:
-    isSeceret: Boolean
+    image: String
+    categories: [Category]
 }
 
 type User {
     _id: ID
-    username: String
+    firstName: String
+    lastName: String
     email: String
-
+    token: String
+}
 type Query {
     categories: [Category]
     meals: [Meal]
-    secertMeals: [Meals]
 }
 type Mutation {
-    signup(username: String, email: String, password: String): User
+    signup(firstName: String, lastName: String, email: String, password: String): User
     login(email: String, password: String): User
   }
 `
