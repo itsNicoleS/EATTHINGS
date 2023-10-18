@@ -21,7 +21,9 @@
   "homepage": "https://github.com/itsNicoleS/EATTHINGS#readme",
   "dependencies": {
     "@emotion/react": "^11.11.1",
+    "bootstrap": "^3.4.1",
     "concurrently": "^8.2.1",
-    "react-bootstrap": "^2.9.0"
+    "react-bootstrap": "^2.9.0",
+    "styled-components": "^6.1.0"
   }
 }
