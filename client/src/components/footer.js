@@ -18,25 +18,25 @@ const Footer = () => {
             <FooterContainer>
                 <Row>
                     <Column>
-                        <FooterLink href="#">
+                        <FooterLink href="/ContactUs">
                             Contact Us
                         </FooterLink>
                     </Column>
                     <Column>
 
-                        <FooterLink href="#">
+                        <FooterLink href="/aboutUs">
                             About Us
                         </FooterLink>
                     </Column>
                     <Column>
 
-                        <FooterLink href="#">
+                        <FooterLink href="tel:123-456-7890">
                             503.123.1234
                         </FooterLink>
                     </Column>
                     <Column>
 
-                        <FooterLink href="#">
+                        <FooterLink href="googlemaps.com?? ">
                             1234 SE Whatever St.
                             Portland, OR 97123
                         </FooterLink>
@@ -49,9 +49,8 @@ const Footer = () => {
 const Box = styled.div`
     padding: 5% 2.5%;
     background: #f9c55f;
-    // position: absolute;
     bottom: 0;
-    width: 95%;
+    width: 100%;
  
     @media (max-width: 1000px) {
         // padding: 70px 30px;
@@ -64,14 +63,12 @@ const FooterContainer = styled.div`
     justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
-    /* background: red; */
 `;
 
 const Column = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-left: 60px;
 `;
 
 const Row = styled.div`

@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-
-import { useParams } from 'react-router-dom';
-
+import { useParams, } from 'react-router-dom';
 import platter from '../assets/platterPic.jpg';
 import injera from '../assets/injeraPic.jpg';
 import coffee from '../assets/coffeePic.webp';
@@ -13,14 +11,15 @@ import tibs from '../assets/tibs.webp';
 import shiro from '../assets/shiroPic.webp';
 
 
-export default function MenuCard(props) {
+
+export default function MenuCard({ loggedIn, setLoggedIn }) {
   const data = [
     {
       itemID: 1,
       name: "Tibs",
       description: "Sliced beef or lamb, pan-fried in butter, garlic and onion.",
       price: 10.00,
-      category: "regMenu",
+      secret: false,
       imageURL: tibs
     },
     {
@@ -28,23 +27,16 @@ export default function MenuCard(props) {
       name: "Doro Wat",
       description: "Doro wot is made with chicken drumsticks cooked and served in a hot sauce of spices.",
       price: 10.00,
-      category: "regMenu",
+      secret: false,
       imageURL: platter
     },
-    {
-      itemID: 3,
-      name: "Shiro",
-      description: "A highly seasoned puree of chickpeas served in a clay pot.",
-      price: 10.00,
-      category: "secretMenu",
-      imageURL: shiro
-    },
+  
     {
       itemID: 4,
       name: "Injera",
       description: "Pancake-like flatbread with a slightly spongy texture.",
       price: 10.00,
-      category: "regMenu",
+      secret: false,
       imageURL: injera
     },
     {
@@ -52,8 +44,16 @@ export default function MenuCard(props) {
       name: "Ethiopian Coffee",
       description: "Brewed fresh!",
       price: 10.00,
-      category: "secretMenu",
+      secret: true,
       imageURL: coffee
+    },
+    {
+      itemID: 3,
+      name: "Shiro",
+      description: "A highly seasoned puree of chickpeas served in a clay pot.",
+      price: 10.00,
+      secret: true,
+      imageURL: shiro
     },
   ]
 
@@ -71,8 +71,8 @@ export default function MenuCard(props) {
 
       <div className='card '>
         <CardGroup>
-          {data.map((menuItem) => {
-            return (
+          {data.map((menuItem) => (        
+              (menuItem.secret && loggedIn == false) ? null : (
               <Card style={{ width: '20em' }}>
                 <Card.Img variant="top" src={menuItem.imageURL} />
                 <Card.Body>
@@ -83,8 +83,11 @@ export default function MenuCard(props) {
                   <Button variant="primary"> ORDER </Button>
                 </Card.Body>
               </Card>
-            );
-          })}
+            )
+          )
+            
+          )
+              }
         </CardGroup>
       </div>
     </Section>
