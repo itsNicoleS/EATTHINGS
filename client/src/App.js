@@ -13,7 +13,7 @@ import AboutUs from './components/aboutUs';
 
 function App() {
   
-const [loggedIn, setLoggedIn] = useState(true);
+const [loggedIn, setLoggedIn] = useState(false);
 
   return (
 
