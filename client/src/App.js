@@ -13,7 +13,7 @@ import AboutUs from './components/aboutUs';
 
 function App() {
   
-const [loggedIn, setLoggedIn] = useState(false);
+const [loggedIn, setLoggedIn] = useState(true);
 
   return (
 
@@ -28,11 +28,11 @@ const [loggedIn, setLoggedIn] = useState(false);
           />
           <Route
             path="/Home"
-            element={<Home />}
+            element={<Home  loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}
           />
           <Route
             path="/SignUp"
-            element={<SignUp />}
+            element={<SignUp  loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}
           />
 
           {/* 
@@ -42,7 +42,7 @@ const [loggedIn, setLoggedIn] = useState(false);
           />*/}
 
           <Route
-            path="/About"
+            path="/aboutUs"
             element={<AboutUs />}
           />
 
